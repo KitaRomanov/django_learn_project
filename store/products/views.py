@@ -1,29 +1,31 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from django.core.paginator import  Paginator
+from django.views.generic.base import  TemplateView
+from django.views.generic.list import ListView
 
 from products.models import ProductCategory, Product, Basket
 from users.models import User
+from common.views import TitleMixin
 
 
-def index(request):
-    context = {
-        'title': 'Магазин',
-    }
-    return render(request, 'products/index.html', context)
 
-def products(request, category_id=None, page_namber=1):
-    products = Product.objects.filter(category_id=category_id) if category_id else Product.objects.all()
-    per_page = 6           #Количество товаров на странице
-    paginator = Paginator(products, per_page)
-    products_paginator = paginator.page(page_namber)
+class IndexViev(TitleMixin, TemplateView):
+    template_name = 'products/index.html'
+    title = 'Магазин'
 
-    context = {
-        'title': 'Магазин - Каталог',
-        'categories': ProductCategory.objects.all(),
-        'products': products_paginator,
-    }
-    return render(request, 'products/products.html', context)
+
+class ProductsListViev(TitleMixin, ListView):
+    model = Product
+    template_name = 'products/products.html'
+    paginate_by = 3              #Количество товаров на странице
+    title = 'Магазин - Каталог'
+
+    def get_queryset(self):
+        queryset = super(ProductsListViev, self).get_queryset()
+        category_id = self.kwargs.get('category_id')
+        return queryset.filter(category_id=category_id) if category_id else queryset
+
+
 
 @login_required
 def basket_add(request, product_id):
