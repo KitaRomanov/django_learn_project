@@ -26,6 +26,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+DOMAIN_NAME = 'http://localhost:8000'
+
 # Application definition
 
 INSTALLED_APPS = (
@@ -35,6 +37,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
 
     'products',
     'users',
@@ -63,6 +71,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'products.context_processors.baskets',
             ],
         },
     },
@@ -74,9 +84,13 @@ WSGI_APPLICATION = 'store.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        'NAME': 'store_db',
+        'USER': 'store_username',
+        'PASSWORD': 'store_password',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -131,3 +145,29 @@ AUTH_USER_MODEL = 'users.User'
 LOGIN_URL = '/users/login'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+# отправка почты
+
+# EMAIL_HOST = 'smtp.yandex.ru'
+# EMAIL_PORT = 465
+# EMAIL_HOST_USER = 'CosmicStore@yandex.ru'
+# EMAIL_HOST_PASSWORD = 'zrmfwhhgioerdrus'
+# EMAIL_USE_SSL = True
+
+
+# аутентификация через соцсети
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SITE_ID = 1
+
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'SCOPE': [
+            'user',
+        ],
+    }
+}

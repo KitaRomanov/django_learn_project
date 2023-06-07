@@ -9,19 +9,19 @@ from common.views import TitleMixin
 
 
 
-class IndexViev(TitleMixin, TemplateView):
+class IndexView(TitleMixin, TemplateView):
     template_name = 'products/index.html'
     title = 'Магазин'
 
 
-class ProductsListViev(TitleMixin, ListView):
+class ProductsListView(TitleMixin, ListView):
     model = Product
     template_name = 'products/products.html'
     paginate_by = 3              #Количество товаров на странице
     title = 'Магазин - Каталог'
 
     def get_queryset(self):
-        queryset = super(ProductsListViev, self).get_queryset()
+        queryset = super(ProductsListView, self).get_queryset()
         category_id = self.kwargs.get('category_id')
         return queryset.filter(category_id=category_id) if category_id else queryset
 
