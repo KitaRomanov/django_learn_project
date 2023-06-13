@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0461f437-c19e-488b-8355-eb7a89351dac" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../store/orders/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../store/orders/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../store/orders/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../store/orders/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../store/orders/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../store/orders/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../store/orders/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../store/orders/templates/orders/order-create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../store/orders/templates/orders/order.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../store/orders/templates/orders/orders.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../store/orders/templates/orders/success.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../store/orders/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../store/orders/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../store/orders/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../store/store/celery.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../store/users/tasks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Изначальные шаблоны.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../store/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../store/products/templates/products/baskets.html" beforeDir="false" afterPath="$PROJECT_DIR$/../store/products/templates/products/baskets.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../store/products/templates/products/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/../store/products/templates/products/products.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../store/products/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/../store/products/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../store/products/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../store/products/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../store/store/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../store/store/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../store/store/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../store/store/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../store/store/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../store/store/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../store/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/../store/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../store/users/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/../store/users/tests.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2R6w3sjUYq1JwMU1XQXcjz1Pv2r" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/nikimine/Рабочий стол/обучение/Джанго обучение/store-server/Изначальные шаблоны",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "AtomSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0461f437-c19e-488b-8355-eb7a89351dac" name="Changes" comment="" />
+      <created>1686583642853</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686583642853</updated>
+      <workItem from="1686583644016" duration="921000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -26,7 +26,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-DOMAIN_NAME = 'http://localhost:8000'
+DOMAIN_NAME = 'http://127.0.0.1:8000'
 
 # Application definition
 
@@ -43,9 +43,11 @@ INSTALLED_APPS = (
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
+    'debug_toolbar',
 
     'products',
     'users',
+    'orders'
 )
 
 MIDDLEWARE = [
@@ -56,6 +58,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'store.urls'
@@ -80,12 +84,27 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'store.wsgi.application'
 
+INTERNAL_IPS = [
+    '127.0.0.1',
+    'localhost',
+]
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379/1',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'store_db',
         'USER': 'store_username',
         'PASSWORD': 'store_password',
@@ -148,11 +167,11 @@ LOGOUT_REDIRECT_URL = '/'
 
 # отправка почты
 
-# EMAIL_HOST = 'smtp.yandex.ru'
-# EMAIL_PORT = 465
-# EMAIL_HOST_USER = 'CosmicStore@yandex.ru'
-# EMAIL_HOST_PASSWORD = 'zrmfwhhgioerdrus'
-# EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'CosmicStore@yandex.ru'
+EMAIL_HOST_PASSWORD = 'zrmfwhhgioerdrus'
+EMAIL_USE_SSL = True
 
 
 # аутентификация через соцсети
@@ -171,3 +190,14 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
     }
 }
+
+# Celery
+
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
+
+#   Платежная система Stripe
+
+STRIPE_PUBLIC_KEY = 'pk_test_51NIE0QL9BW92ST9zEezhvGRPGixieqfyPImdQzpfBJm1qidunk4IRvNDWpyLO6rINm6pTFOxIgsnXBozqG2B6csy00eAeTMtoA'
+STRIPE_SECRET_KEY = 'sk_test_51NIE0QL9BW92ST9zxaSojugjm3gWPrtNw33C6oY7WNenmDfO1f73l4Ak0HNJMVYnWyhkxKupUPCfUlHxdzAXLtZ400uvwkaPFe'
+STRIPE_WEBHOOK_SECRET = 'whsec_ed787625b875821c326aefd876f8210470614f327e3a6c571abe15836804ce79'
