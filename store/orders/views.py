@@ -11,6 +11,7 @@ from django.http import HttpResponse
 
 from common.views import TitleMixin
 from orders.forms import OrderForm
+from products.models import Basket
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -24,7 +25,6 @@ class CanceledTemplateView(TitleMixin, TemplateView):
     template_name = 'orders/canceled.html'
 
 
-
 class OrderCreateView(TitleMixin, CreateView):
     template_name = 'orders/order-create.html'
     form_class = OrderForm
@@ -33,13 +33,9 @@ class OrderCreateView(TitleMixin, CreateView):
     
     def post(self, request, *args, **kwargs):
         super(OrderCreateView, self).post(request, *args, **kwargs)
+        baskets = Basket.objects.filter(user=self.request.user)
         checkout_session = stripe.checkout.Session.create(
-            line_items=[
-                {
-                    'price': 'price_1NIELxL9BW92ST9zP7CMNhaM',
-                    'quantity': 1,
-                },
-            ],
+            line_items=baskets.stripe_products(),
             metadata={'order_id': self.object.id},
             mode='payment',
             success_url='{}{}'.format(settings.DOMAIN_NAME, reverse('orders:order_success')),
