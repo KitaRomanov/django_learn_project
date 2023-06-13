@@ -32,5 +32,8 @@ class Order(models.Model):
         baskets = Basket.objects.filter(user=self.initiator)
         self.status = self.PAID
         self.basket_history = {
-            'purchased_items': [basket.de_json() for basket in baskets]
+            'purchased_items': [basket.de_json() for basket in baskets],
+            'total_sum': float(baskets.total_sum()),
         }
+        baskets.delete()
+        self.save()
